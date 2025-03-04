@@ -25,27 +25,27 @@
 ### How to use
 
 1. 서브쿼리에서 Full Table Scan이 발생하는 경우
-🔹 해결 방법
+- 🔹 해결 방법
 INDEX(table index_name) 힌트를 사용하여 인덱스를 강제 적용
-🔹 예시
+- 🔹 예시
      ```sql
      SELECT /*+ INDEX(emp emp_idx) */ * FROM emp WHERE dept_no IN 
      (SELECT dept_no FROM department WHERE dept_name = 'Sales');
      ```
 
 2. 조인 시 잘못된 실행 계획이 선택되는 경우
-🔹 해결 방법
+- 🔹 해결 방법
 USE_NL, USE_HASH, LEADING 힌트를 사용하여 조인 순서 및 방식을 제어
-🔹 예시
+- 🔹 예시
      ```sql
      SELECT /*+ LEADING(e d) USE_NL(d) */ e.emp_id, e.emp_name, d.dept_name 
      FROM emp e JOIN department d ON e.dept_no = d.dept_no;
      ```
 
 3. 병렬 처리를 활용해야 하는 경우
-🔹 해결 방법
+- 🔹 해결 방법
 PARALLEL(table N) 힌트를 사용하여 병렬 실행 유도
-🔹 예시
+- 🔹 예시
      ```sql
      SELECT /*+ PARALLEL(emp 4) */ * FROM emp;
      ```
