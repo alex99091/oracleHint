@@ -62,4 +62,4 @@ DML을 통한 특정 업무에 대한 DB 조회 시 성능 문제를 일으킬 �
 
 - 아래의 케이스는 업무 내용과 관련하여 서브쿼리에 Hint를 추가하여 적용한 예
 - 보안을 위해 테이블명이나, 주요 내용은 삭제 후 쿼리예시만 적용함
-[Example](./hint_example.sql)
+- [Example](./hint_example.sql) 선택 후, sql파일로 이동
